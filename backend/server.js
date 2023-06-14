@@ -4,6 +4,8 @@ const dotenv = require("dotenv");
 const dbconnect = require("./db/dbconnect");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const auth = require("./auth/auth");
+const corsFilter = require("./config/corsConfig");
 
 const app = express();
 app.use(express.json());
@@ -13,6 +15,9 @@ const port = process.env.PORT_DEV || 5000;
 
 // Establish connection to MongoDB.
 dbconnect();
+
+// Configure cors filter for development purpose.
+app.use(corsFilter);
 
 // Signup or register endpoint API.
 const User = require("./db/model/user-model");
