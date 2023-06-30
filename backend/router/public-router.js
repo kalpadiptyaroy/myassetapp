@@ -20,7 +20,7 @@ async function signup(req, res) {
         return res.status(500).send({message: "Can't hash you password successfully"});
     }
 
-    const user = new User({ email: req.body.email, password: hashedPassword });
+    const user = new User({ fullname: req.body.fullname, email: req.body.email, password: hashedPassword });
 
     try {
         const savedUser = await user.save();    

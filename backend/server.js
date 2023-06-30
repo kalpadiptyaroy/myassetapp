@@ -21,7 +21,7 @@ const port = process.env.PORT_DEV || 5000;
 dbconnect();
 
 // Signup or register endpoint API.
-app.post("/signup", publicRouter.signup);
-app.post("/signin", publicRouter.signin);
+app.post("/api/signup", publicRouter.signup);
+app.post("/api/signin", publicRouter.signin);
 
 app.listen(port, () => console.log(`Express running at ${port}`));
